@@ -5,3 +5,6 @@
 	path = citeproc/data/locales
 	url = https://github.com/citation-style-language/locales.git
 	branch = master
+[submodule "citeproc/data/styles"]
+	path = citeproc/data/styles
+	url = git@github.com:citation-style-language/styles.git

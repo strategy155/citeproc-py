@@ -2,6 +2,7 @@ from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 from citeproc.py2compat import *
 
+import cgi
 import re
 import unicodedata
 import os
@@ -312,8 +313,8 @@ class Formatted(object):
 class Affixed(object):
     def wrap(self, string):
         if string is not None:
-            prefix = self.get('prefix', '')
-            suffix = self.get('suffix', '')
+            prefix = cgi.escape(self.get('prefix', ''))
+            suffix = cgi.escape(self.get('suffix', ''))
             return prefix + string + suffix
         return None
 
@@ -600,8 +601,8 @@ class Layout(CitationStylesElement, Parent, Formatted, Affixed, Delimited):
         out = []
         for item in good_cites:
             self.repressed = {}
-            prefix = item.get('prefix', '')
-            suffix = item.get('suffix', '')
+            prefix = cgi.escape(item.get('prefix', ''))
+            suffix = cgi.escape(item.get('suffix', ''))
             try:
                 output = self.render_children(item)
                 if output is not None:

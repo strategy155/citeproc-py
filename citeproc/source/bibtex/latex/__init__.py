@@ -125,7 +125,10 @@ def handle_macro(tokens, macros):
     try:
         macro = MACROS[name]
     except KeyError:
+        print(name)
         macro = macros[name]
+    except KeyError:
+        return None
     return macro.parse_arguments_and_expand(tokens, macros)
 
 

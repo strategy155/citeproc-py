@@ -27,10 +27,11 @@ class BibTeX(BibliographySource):
               'doi': 'DOI',
               'edition': 'edition',
               'editor': 'editor',
+              'url': 'URL',
 #              'howpublished': None,
 #              'institution': None,
               'journal': 'container_title',
-#              'month': None,
+              'month': 'month',
               'note': 'note',
               'number': 'issue',
 #              'organization': None,
@@ -41,7 +42,7 @@ class BibTeX(BibliographySource):
               'series': 'collection_title',
               'title': 'title',
 #              'type': None,
-#              'year': None,
+              'year': 'year',
               'volume': 'volume',
 
               # non-standard fields
@@ -63,6 +64,7 @@ class BibTeX(BibliographySource):
              'proceedings': BOOK,
              'techreport': REPORT,
              'unpublished': MANUSCRIPT,
+            'online': 'webpage',
 
              # non-standard entry types
              'thesis': THESIS,

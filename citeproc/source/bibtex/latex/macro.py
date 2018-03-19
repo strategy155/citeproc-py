@@ -104,7 +104,10 @@ class Combining(Macro):
 
     def expand(self, arguments):
         assert len(arguments) == self.num_args
-        accented, rest = arguments[0][0], arguments[0][1:]
+        try:
+            accented, rest = arguments[0][0], arguments[0][1:]
+        except IndexError:
+            return ''
         accented = self.DOTTED_CHARS.get(accented, accented)
         expanded = super(Combining, self).expand([accented])
         return unicodedata.normalize('NFC', expanded) + rest
